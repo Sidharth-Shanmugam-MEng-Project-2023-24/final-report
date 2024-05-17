@@ -1,0 +1,197 @@
+\documentclass[12pt]{article}
+
+\usepackage{notoccite}
+\usepackage{amsmath}
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{lscape}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[title,titletoc]{appendix}
+\usepackage{hyperref}
+
+% - // TODO - header and footers.
+% - // TODO - image remove [h] and alter positions. Maybe use [H]?
+
+% uncomment the following two lines to check if references are all used
+% \usepackage{refcheck}
+% \nocite{*}
+
+\onehalfspacing % 1.5 line spacing
+% \doublespacing  % 2.0 line spacing
+
+\hypersetup{hidelinks} % hides hyperref borders
+
+% code listing colours
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+
+% code listing style
+\lstdefinestyle{codestyle}{
+    % backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\scriptsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=codestyle}
+
+\title{Final Project Report: Machine Vision-Based Anti-Backscatter Lighting System for Unmanned Underwater Vehicles}
+\author{Sidharth Shanmugam}
+\date{20 May, 2024}
+
+\begin{document}
+
+\begin{onehalfspace}
+    \begin{titlepage}
+
+        \begin{FlushLeft}
+            \textsc{\LARGE Sidharth Shanmugam}\\[0.8cm]
+    
+            \Large{
+                \bfseries{
+                    \emph{Final Project Report}}}
+            
+            \hrulefill
+    
+            
+            \LARGE{
+                \bfseries{
+                    Machine Vision-Based Anti-Backscatter\\ Lighting System for Unmanned Underwater\\ Vehicles}}
+            
+            \hrulefill\\[7.2cm]
+    
+        \end{FlushLeft}
+        
+        \vfill
+
+        
+        \centering
+        \includegraphics[width=0.4\textwidth]{assets/uoy-logo-stacked-shield.png}
+
+        \vfill
+        
+        \textsf{\centering
+                20 May, 2024}
+        
+        \vfill
+        
+        \textsf{\centering
+                4\textsuperscript{th} Year Project Final Report for the Degree of\\ MEng in Electronic and Computer Engineering}
+        
+        \vfill
+        
+        \textsf{\centering
+                School of Physics, Engineering and Technology,\\University of York, England YO10 5DD}
+        
+        \vfill    
+        
+        \textsf{\centering
+                Academic Project Supervisors:\\ Prof. Paul D Mitchell, Prof. Andy M Tyrrell}
+        
+    \end{titlepage}
+\end{onehalfspace}
+
+\pagebreak
+
+\section*{Abstract}
+\input{sections/00_abstract.tex}
+\vfill
+\section*{Ethical Statement}
+\input{sections/01_ethical-statement.tex}
+
+\pagebreak
+
+\section*{Acknowledgements}
+\input{sections/03_acknowledgements.tex}
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+\listoffigures
+\pagebreak
+\listoftables
+
+\pagebreak
+
+%--Paper--
+
+\section{Introduction}
+\label{introduction}
+\input{sections/04_introduction.tex}
+
+\section{Background Information}
+\label{background}
+\input{sections/05_background.tex}
+
+\section{Design}
+\label{design}
+\input{sections/06_design.tex}
+
+\section{Implementation}
+\label{implementation}
+\input{sections/07_implementation.tex}
+
+\section{Testing \& Evaluation}
+\label{testing}
+\input{sections/08_testing.tex}
+
+\section{Conclusion}
+\label{conclusion}
+\input{sections/09_conclusion.tex}
+
+%--/Paper--
+
+\newpage
+\bibliographystyle{IEEEtranSid}
+\bibliography{IEEEabrv,references}
+
+\newpage
+\begin{appendices}
+    \section{Bubble Backscatter Simulator}
+    \label{sim}
+    \input{appendices/00_bubble-backscatter-simulator.tex}
+
+    \section{Lossless Video Recorder}
+    \label{pirec}
+    \input{appendices/01_picam-recorder.tex}
+
+    \section{Standard Backscatter Cancellation System}
+    \label{sys}
+    \input{appendices/02_system.tex}
+
+    \section{Multiprocessing Backscatter Cancellation System}
+    \label{mpsys}
+    \input{appendices/03_mp-system.tex}
+
+    \section{Project Progress Gantt Charts}
+    \label{gantt}
+    \input{appendices/04_gantt-timelines.tex}
+\end{appendices}
+
+\end{document}

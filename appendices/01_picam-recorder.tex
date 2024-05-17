@@ -1,0 +1,158 @@
+\subsection{Description of Class Fields \& Methods}
+\label{rec_tbls}
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\linewidth}{c | X}
+        Name    &   Description\\
+        \hline
+        \hline
+        \texttt{REC\_FPS}          &   The recording frame rate.\\
+        \hline
+        \texttt{REC\_WIDTH}         & The horizontal resolution of recording.\\
+        \hline
+        \texttt{REC\_HEIGHT}         & The vertical resolution of recording.\\
+        \hline
+        \texttt{FB\_WIDTH}         &  The horizontal resolution of the Framebuffer.\\
+        \hline
+        \texttt{FB\_HEIGHT}         & The vertical resolution of the Framebuffer.\\
+        \hline
+        \texttt{FB\_DEPTH}          & The bit depth of the Framebuffer.\\
+        \hline
+    \end{tabularx}
+    \caption{Software configuration constants and their descriptions from the Lossless Raspberry Pi Camera Recorder program.}
+    \label{table:recparams}
+\end{table}
+
+\subsubsection{The `ProjectorManager' Module}
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\linewidth}{c | X}
+        Name    &   Description\\
+        \hline
+        \hline
+        \texttt{width} & The horizontal resolution of the Framebuffer device, same as \texttt{FB\_WIDTH}.\\
+        \hline
+        \texttt{height} & The vertical resolution of the Framebuffer device, same as \texttt{FB\_HEIGHT}.\\
+        \hline
+        \texttt{height} & The Framebuffer bit depth, same as \texttt{FB\_DEPTH}.\\
+        \hline
+        \texttt{status} & Stores \texttt{True} if the projector light is `on', \texttt{False} if `off'.\\
+        \hline
+    \end{tabularx}
+    \caption{Fields and their descriptions from the Projector class of the `ProjectorManager' module from the Lossless Raspberry Pi Camera Recorder program.}
+    \label{table:projectormanagerclassfields}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\linewidth}{c | X}
+        Name    &   Description\\
+        \hline
+        \hline
+        \texttt{\_\_init\_\_()}     &   Initialises a new \texttt{Projector} object, populating the Framebuffer fields for \texttt{FB\_WIDTH}, \texttt{FB\_HEIGHT}, and \texttt{FB\_DEPTH}. Initialising the bitmaps for light `on' and `off', and setting the light status to `off'.\\
+        \hline
+        \texttt{getStatus()}     &   A simple `getter' function for the \texttt{status} class field.\\
+        \hline
+        \texttt{on()}     &   Writes the `on' bitmap to the Framebuffer memory location, thus turning on the projector light source.\\
+        \hline
+        \texttt{off()}     &   Writes the `off' bitmap to the Framebuffer memory location, thus turning off the projector light source.\\
+        \hline
+        \texttt{toggle()}     &   Writes the `on' bitmap to the Framebuffer memory location if the \texttt{status} stores `off', and vice-versa, thus toggling on the projector light source.\\
+        \hline
+    \end{tabularx}
+    \caption{Methods and their descriptions from the Projector class of the `ProjectorManager' module from the Lossless Raspberry Pi Camera Recorder program.}
+    \label{table:projectormanagerclassfuncs}
+\end{table}
+
+\subsubsection{The `CameraManager' Module}
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\linewidth}{c | X}
+        Name    &   Description\\
+        \hline
+        \hline
+        \texttt{picam2} & Stores the initialised \texttt{Picamera2} instance.\\
+        \hline
+        \texttt{recording} & Stores \texttt{True} if the recording is in progress, otherwise stores \texttt{True}.\\
+        \hline
+        \texttt{recording\_filename} & Stores the filename which the recorded file will be saved as.\\
+        \hline
+        \texttt{recording\_start\_ts} & Stores the timestamp of when the recording was started.\\
+        \hline
+        \texttt{recording\_end\_ts} & Stores the timestamp of when the recording was stopped.\\
+        \hline
+    \end{tabularx}
+    \caption{Fields and their descriptions from the Camera class of the `CameraManager' module from the Lossless Raspberry Pi Camera Recorder program.}
+    \label{table:cameramanagerclassfields}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\linewidth}{c | X}
+        Name    &   Description\\
+        \hline
+        \hline
+        \texttt{\_\_init\_\_()}     &   Initalises and configures the \texttt{Picamera2} instance by setting the recording resolution from \texttt{REC\_WIDTH} and \texttt{REC\_HEIGHT}, the frame rate from \texttt{REC\_RATE}, capture stream as the `main' output stream, and an ISP output format as `BGR888', and finally starts the RPi Camera module.\\
+        \hline
+        \texttt{getStatus()}     &   A simple `getter' function for the \texttt{recording} class field.\\
+        \hline
+        \texttt{captureFrame()}     &   Retrieves and returns the camera's sensor output array.\\
+        \hline
+        \texttt{startRecording()}     &   Sets the \texttt{recording} class field to \texttt{True}, then initialises a memory buffer, logging the timestamp for \texttt{recording\_start\_ts} before finally initialising the `Null' encoder and starting the recording.\\
+        \hline
+        \texttt{stopRecording()}     &   Sets the \texttt{recording} class field to \texttt{False}, then stops the `Picamera2' recording, before applying the lossless FFV1 encoding to the footage bitstream, then finally writing to a file and closing the memory buffer.\\
+        \hline
+        \texttt{toggleRecording()}     &   Starts a recording if not already recording, and vice-versa, thus toggling the Pi Camera recording.\\
+        \hline
+        \texttt{shutdown()}     &   Stops recording if there is one in progress before finally sending a graceful shutdown signal to the `Picamera2' module to stop and disconnect the Pi Camera.\\
+        \hline
+    \end{tabularx}
+    \caption{Methods and their descriptions from the Camera class of the `CameraManager' module from the Lossless Raspberry Pi Camera Recorder program.}
+    \label{table:cameramanagerclassfuncs}
+\end{table}
+
+\subsubsection{The `PreviewManager' Module}
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\linewidth}{c | X}
+        Name    &   Description\\
+        \hline
+        \hline
+        \texttt{\_\_init\_\_()}     &   Initalises a new OpenCV-based GUI window.\\
+        \hline
+        \texttt{getKeypress()}     &   Retrieves a keypress using the OpenCV GUI functions.\\
+        \hline
+        \texttt{shutdown()}     &   Destroys the OpenCV GUI window.\\
+        \hline
+        \texttt{showFrame()}     &   Renders the image frame on the GUI window and overlays the status variable text using OpenCV.\\
+        \hline
+    \end{tabularx}
+    \caption{Methods and their descriptions from the Preview class of the `PreviewManager' module from the Lossless Raspberry Pi Camera Recorder program.}
+    \label{table:previewmanagerclassfuncs}
+\end{table}
+
+
+\subsection{Python Code}
+\label{rec_code}
+\subsubsection{Entry Point: `app.py'}
+
+\lstinputlisting[language=Python, caption={The Python code for the `app.py' entry point to the Lossless Raspberry Pi Camera Recorder, commit version: \texttt{30efb5a} from \href{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/picam-video-recorder/blob/main/app.py}{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/picam-video-recorder/blob/main/app.py}}]{code/01_picam-recorder/app.py}
+
+
+\subsubsection{ProjectorManger: `ProjectorManager.py'}
+
+\lstinputlisting[language=Python, caption={The Python code for `ProjectorManager.py' in the Lossless Raspberry Pi Camera Recorder, commit version: \texttt{30efb5a} from \href{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/picam-video-recorder/blob/main/ProjectorManager.py}{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/picam-video-recorder/blob/main/ProjectorManager.py}}]{code/01_picam-recorder/ProjectorManager.py}
+
+
+\subsubsection{CameraManager: `CameraManager.py'}
+
+\lstinputlisting[language=Python, caption={The Python code for `CameraManager.py' in the Lossless Raspberry Pi Camera Recorder, commit version: \texttt{30efb5a} from \href{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/picam-video-recorder/blob/main/CameraManager.py}{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/picam-video-recorder/blob/main/CameraManager.py}}]{code/01_picam-recorder/CameraManager.py}
+
+
+\subsubsection{PreviewManager: `PreviewManager.py'}
+
+\lstinputlisting[language=Python, caption={The Python code for `PreviewManager.py' in the Lossless Raspberry Pi Camera Recorder, commit version: \texttt{30efb5a} from \href{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/picam-video-recorder/blob/main/PreviewManager.py}{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/picam-video-recorder/blob/main/PreviewManager.py}}]{code/01_picam-recorder/PreviewManager.py}
+

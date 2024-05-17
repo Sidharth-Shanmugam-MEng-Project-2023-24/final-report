@@ -1,0 +1,46 @@
+\subsection{Description of Class Fields \& Methods}
+\label{sys_tbls}
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\linewidth}{c | X}
+        Name    &   Description\\
+        \hline
+        \hline
+        \texttt{VIDEO\_CAPTURE\_SOURCE} & Set with directory path to input a list of individual frames, file path to input a video file, or integer `0' to use the RPi Camera input.\\
+        \hline
+        \texttt{VIDEO\_CAPTURE\_WIDTH} & The horizontal resolution of recording.\\
+        \hline
+        \texttt{VIDEO\_CAPTURE\_HEIGHT} & The vertical resolution of recording.\\
+        \hline
+        \texttt{VIDEO\_CAPTURE\_CROP\_HEIGHT} &  The vertical resolution to crop for the region of interest.\\
+        \hline
+        \texttt{VIDEO\_CAPTURE\_CROP\_WIDTH} &  The horizontal resolution to crop for the region of interest.\\
+        \hline
+        \texttt{BS\_MANAGER\_DEBUG\_WINDOWS} & Whether to render debug windows showing the post-processed frame after intermediate processing stages.\\
+        \hline
+    \end{tabularx}
+    \caption{Software configuration constants and their descriptions from the Backscatter Cancellation program.}
+    \label{table:sysparams}
+\end{table}
+
+\subsection{Python Code}
+\label{sys_code}
+\subsubsection{Entry Point: `app.py'}
+
+\lstinputlisting[language=Python, caption={The Python code for the `app.py' entry point to the Backscatter Cancellation System program, commit version: \texttt{46b962a} from \href{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/backscatter-cancellation-system/blob/main/app.py}{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/backscatter-cancellation-system/blob/main/app.py}}]{code/02_system/app.py}
+
+\subsubsection{CaptureManager: `CaptureManager.py'}
+
+\lstinputlisting[language=Python, caption={The Python code for `CaptureManager.py' in the Backscatter Cancellation System program, commit version: \texttt{1bf8131} from \href{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/backscatter-cancellation-system/blob/main/CaptureManager.py}{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/backscatter-cancellation-system/blob/main/CaptureManager.py}}]{code/02_system/CaptureManager.py}
+
+\subsubsection{BSManager: `BSManager.py'}
+
+\lstinputlisting[language=Python, caption={The Python code for `BSManager.py' in the Backscatter Cancellation System program, commit version: \texttt{46b962a} from \href{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/backscatter-cancellation-system/blob/main/BSManager.py}{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/backscatter-cancellation-system/blob/main/BSManager.py}}]{code/02_system/BSManager.py}
+
+\subsubsection{TimeManager: `TimeManager.py'}
+
+\lstinputlisting[language=Python, caption={The Python code for `TimeManager.py' in the Backscatter Cancellation System program, commit version: \texttt{2367e84} from \href{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/backscatter-cancellation-system/blob/main/TimeManager.py}{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/backscatter-cancellation-system/blob/main/TimeManager.py}}]{code/02_system/TimeManager.py}
+
+\subsubsection{WindowManager: `WindowManager.py'}
+
+\lstinputlisting[language=Python, caption={The Python code for `WindowManager.py' in the Backscatter Cancellation System program, commit version: \texttt{407ac01} from \href{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/backscatter-cancellation-system/blob/main/WindowManager.py}{https://github.com/Sidharth-Shanmugam-MEng-Project-2023-24/backscatter-cancellation-system/blob/main/WindowManager.py}}]{code/02_system/WindowManager.py}
