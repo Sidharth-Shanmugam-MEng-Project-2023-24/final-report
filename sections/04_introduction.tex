@@ -17,10 +17,8 @@ When capturing images or recording video underwater, one would instantly notice 
         \caption{}
         % \label{subfig:backscatter_gopro}
     \end{subfigure}
-    \caption{(a) Backscatter appears as the particles of sand drift between the aquatic animal and the camera, retrieved from \cite{brentdurandEasyWaysEliminate2013}. (b) A captured frame in GoPro footage from a UUV of the seabed with backscatter increasing as the propellors disrupt the sand.}
+    \caption{(a) Backscatter appears as the particles of sand drift between the aquatic animal and the camera \cite{brentdurandEasyWaysEliminate2013}. (b) A frame from GoPro footage showing backscatter from a UUV.}
     \label{fig:backscatter}
 \end{figure}
 
 With a specialised camera sensor to capture fast-moving backscatter particles, a single-board computer processing frames using advanced machine vision technologies to detect backscatter, and a specialised projector to project selectively illuminated light patterns, the project's ultimate goal is to develop a novel backscatter-cancelling light source to aid the generation of high-quality underwater images in real-time, thus eliminating the requirement for a camera with better dynamic range compatibility to compensate for the bright regions from backscatter and lens flares. The first objective is to research architectures to develop a reliable backscatter detection system, tieing in with the second objective of researching methodologies to optimise for real-time to ensure predictability and stability, ensuring the projection of backscatter-cancelling light patterns with minimal and consistent latency.
-
-Section \ref{background} summarises the information in related theoretical realms to form the foundation of the subsequent sections. Section \ref{design} first introduces the assumptions and requirements before detailing the high-level processes for both the lighting system and toolsets for testing. Section \ref{implementation} showcases the system and toolset implementations, which Section \ref{testing} then quantifies by evaluating the real-time performances. Section \ref{conclusion} reflects on these evaluations, including a reflection on project execution and a discussion of future work.

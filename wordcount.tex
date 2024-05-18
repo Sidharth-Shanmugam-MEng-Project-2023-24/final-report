@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+
+\usepackage{notoccite}
+\usepackage{amsmath}
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{lscape}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[title,titletoc]{appendix}
+\usepackage{hyperref}
+
+% uncomment the following two lines to check if references are all used
+% \usepackage{refcheck}
+% \nocite{*}
+
+\onehalfspacing % 1.5 line spacing
+% \doublespacing  % 2.0 line spacing
+
+\hypersetup{hidelinks} % hides hyperref borders
+
+\begin{document}
+
+\section*{Abstract}
+\input{sections/00_abstract.tex}
+
+\section*{Ethical Statement}
+\input{sections/01_ethical-statement.tex}
+
+\section*{Acknowledgements}
+\input{sections/03_acknowledgements.tex}
+
+\section{Introduction}
+\label{introduction}
+\input{sections/04_introduction.tex}
+
+\section{Background Information}
+\label{background}
+\input{sections/05_background.tex}
+
+\section{Design}
+\label{design}
+\input{sections/06_design.tex}
+
+\section{Implementation}
+\label{implementation}
+\input{sections/07_implementation.tex}
+
+\section{Testing \& Evaluation}
+\label{testing}
+\input{sections/08_testing.tex}
+
+\section{Conclusion}
+\label{conclusion}
+\input{sections/09_conclusion.tex}
+
+\end{document}

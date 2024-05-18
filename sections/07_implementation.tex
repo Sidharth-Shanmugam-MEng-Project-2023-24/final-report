@@ -7,7 +7,7 @@ Due to security reasons, also noted by Shepherd, it is not possible to connect t
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{assets/interface_diagram.png}
-    \caption{Illustration of the Raspberry Pi SSH and Wi-Fi communication configuration, including video output interfacing with HDMI.}
+    \caption{The Raspberry Pi SSH and Wi-Fi communication configuration, including video output interfacing with HDMI.}
     \label{fig:pi_interfacing}
 \end{figure}
 
@@ -24,7 +24,7 @@ The program flow, illustrated in Figure \ref{fig:simflow}, begins by initialisin
     \begin{figure}
         \centering
         \includegraphics[width=1\linewidth]{assets/impl-sim_flow.png}
-        \caption{Flowchart of backscatter simulation software process.}
+        \caption{Backscatter simulation software process.}
         \label{fig:simflow}
     \end{figure}
 \end{landscape}
@@ -38,7 +38,7 @@ As Section \ref{designrec} introduces, this software, Python scripts in Appendix
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{assets/picamera-system.png}
-    \caption{Illustration from \cite{raspberrypiltdPicamera2Library2024} of the Raspberry Pi camera system.}
+    \caption{From \cite{raspberrypiltdPicamera2Library2024}, the Raspberry Pi camera system.}
     \label{fig:picam_system}
 \end{figure}
 
@@ -51,7 +51,7 @@ Figure \ref{fig:recflow} illustrates the flow of the software. The program begin
     \begin{figure}
         \centering
         \includegraphics[width=1\linewidth]{assets/impl_rec-flow.png}
-        \caption{Flowchart of lossless video recorder software process.}
+        \caption{Lossless video recorder software process.}
         \label{fig:recflow}
     \end{figure}
 \end{landscape}
@@ -69,7 +69,7 @@ As Figure \ref{fig:sysflow} illustrates, the program begins by setting the softw
     \begin{figure}
         \centering
         \includegraphics[width=1\linewidth]{assets/impl_system-flow.png}
-        \caption{Flowchart of backscatter cancellation system software process.}
+        \caption{Backscatter cancellation system software process.}
         \label{fig:sysflow}
     \end{figure}
 \end{landscape}
@@ -83,4 +83,4 @@ Due to the asynchronicity of the processes, the system employs queues to send da
 
 \subsection{Applying the PREEMPT-RT Patch}
 
-The latest version of Raspberry Pi OS Lite at the time I built the real-time kernel, which was on the 15\textsuperscript{th} of March 2024, used the 6.6.20 Linux kernel version. Therefore, I applied the PREEMPT-RT patch with the corresponding version label of 6.6.20-rt25. I selected the `Fully Preemptible Kernel (Real-Time)' option, also enabling the RCU priority boosting with a 500ms delay boosting for the RT kernel and enabled the `Multi-core scheduler support' option for both RT and the non-RT kernel. Finally, I built both kernels, copied the libraries and both kernel image files into the correct RPi SBC directories, making sure to take a backup of the existing kernel, and finally, in the boot configuration file, I selected the correct kernel filename, being able to interchange between either of the two kernels, after rebooting.
+The latest version of Raspberry Pi OS Lite at the time I built the real-time kernel used the 6.6.20 Linux kernel version. Therefore, I applied the PREEMPT-RT patch with the corresponding version label of 6.6.20-rt25. While building, I selected the `Fully Preemptible Kernel (Real-Time)' option, also enabling the RCU priority boosting with a \SI{500}{\milli\second} delay boosting for the RT kernel and enabled the `Multi-core scheduler support' option for both RT and the non-RT kernels.
